@@ -26,7 +26,6 @@ Return `true` if it is possible to obtain the string `target` by moving the piec
 start = "_L__R__R_"
 target = "L______RR"
 ___
-### Code Snippet:-
 ```
 #include <stdio.h>
 #include <stdbool.h>
