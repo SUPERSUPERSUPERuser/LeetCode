@@ -2,7 +2,7 @@
 
 **Status:** Solved  
 **Difficulty:** Medium  
-**Topics:** Strings, Simulation  
+**Topics:** Array, Binary Search
 ---
 
 ## Problem Description
