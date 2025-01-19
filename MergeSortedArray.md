@@ -1,22 +1,17 @@
-# 2337. Balls in Bag
+# 2337. Merge Sorted
 
 **Status:** Solved  
 **Difficulty:** Medium  
-**Topics:** Array, Binary Search
+**Topics:** Array, Two Pointer 
 ---
 
 ## Problem Description
 
-You are given an integer array nums where the ith bag contains nums[i] balls. You are also given an integer maxOperations.
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
 
-You can perform the following operation at most maxOperations times:
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
 
-Take any bag of balls and divide it into two new bags with a positive number of balls.
-For example, a bag of 5 balls can become two new bags of 1 and 4 balls, or two new bags of 2 and 3 balls.
-Your penalty is the maximum number of balls in a bag. You want to minimize your penalty after the operations.
-
-Return the minimum possible penalty after performing the operations.
-
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
 ---
 
 ## Examples
@@ -26,39 +21,28 @@ Return the minimum possible penalty after performing the operations.
 **Input:**
 
 ```c
-Input: nums = [9], maxOperations = 2
-Output: 3
-Explanation: 
-- Divide the bag with 9 balls into two bags of sizes 6 and 3. [9] -> [6,3].
-- Divide the bag with 6 balls into two bags of sizes 3 and 3. [6,3] -> [3,3,3].
-The bag with the most number of balls has 3 balls, so your penalty is 3 and you should return 3.
-```
+Example 1:
+
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 
 ```class Solution {
-   class Solution {
-public:
-    bool isPalindrome(string s) {
-        int l = 0;
-        int e = s.size() - 1;
-
-        while (l <= e) {
-            // Skip non-alphanumeric characters
-            if (!isalnum(s[l])) {
-                l++;
-            } else if (!isalnum(s[e])) {
-                e--;
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        
+        while (j >= 0) {
+            if (i >= 0 && nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
             } else {
-                // Compare characters after converting to lowercase
-                char t1 = tolower(s[l]);
-                char t2 = tolower(s[e]);
-                if (t1 != t2) return false;
-                l++;
-                e--;
+                nums1[k--] = nums2[j--];
             }
         }
-        return true;
     }
-};
+}
                 
             
         
