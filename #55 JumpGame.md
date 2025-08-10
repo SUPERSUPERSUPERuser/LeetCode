@@ -2,7 +2,6 @@
 
 **Status:** Solved  
 **Difficulty:** Medium 
-**Topics:** Array, BFS, Heap, Priority Queue
 ---------
 
 ## Problem Description
