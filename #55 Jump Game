@@ -45,7 +45,8 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
         return true;
     }
 }
-
-                
+## Concept
+Using Greedy technique, we used a variable *Farthest* to keep track of the last possible reachable index in the array. This helps in dealiing with cases easily where a 0 might occur in the middle of the array compared to the old method we were using.
+The rest is self explanatory         
             
         
